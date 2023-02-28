@@ -1,19 +1,18 @@
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
-import { getAuthorsQuery, addBookMutation } from "../queries/queries";
+import { getAuthorsQuery, addBookMutation, getBooksQuery } from "../queries/queries";
 
 function AddBook() {
 	const { loading, error, data } = useQuery(getAuthorsQuery);
 	const [addBook, { data: bookData, loading: bookLoading, error: bookError }] = useMutation(addBookMutation, {
 		refetchQueries: [
-			{ query: getAuthorsQuery }, // DocumentNode object parsed with gql
-			'getAuthorsQuery' // Query name
+			{ query: getBooksQuery }
 		]
 	});
 
-	const [name, setName] = useState("");
-	const [genre, setGenre] = useState("");
-	const [authorId, setAuthorId] = useState("");
+	const [name, setName] = useState(null);
+	const [genre, setGenre] = useState(null);
+	const [authorId, setAuthorId] = useState(null);
 
 	const submitForm = (e) => {
 		e.preventDefault();
