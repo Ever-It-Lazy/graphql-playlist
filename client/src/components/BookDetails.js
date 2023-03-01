@@ -8,7 +8,7 @@ function BookDetails({ bookId }) {
 	});
 
 	if (loading) return <p>Loading...</p>;
-	if (error) return <p>No book has been selected yet.</p>;
+	if (error) return <p id="book-details">No book has been selected yet.</p>;
 
 	return (
 		<div id="book-details">
