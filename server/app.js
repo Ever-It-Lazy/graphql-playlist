@@ -11,7 +11,7 @@ dotenv.config();
 
 mongoose.connect(process.env.MONGO_URI);
 mongoose.connection.once("open", () => {
-	console.log("connected to database");
+	console.log("connected TO database");
 });
 
 app.use("/graphql", graphqlHTTP({
@@ -23,5 +23,5 @@ app.use("/graphql", graphqlHTTP({
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-	console.log(`now listening for requests on port ${PORT}`);
+	console.log(`now listening FOR requests on port ${PORT}`);
 });
