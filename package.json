@@ -6,7 +6,9 @@
 	"scripts": {
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
 		"client": "npm start --prefix client",
-		"server": "nodemon --quiet server"
+		"server": "node server/index.js",
+		"start": "node run server",
+		"build": "npm install && npm install --prefix client && npm run build --prefix client"
 	},
 	"author": "",
 	"license": "ISC",

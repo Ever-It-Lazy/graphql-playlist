@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 const dotenv = require('dotenv');
@@ -19,6 +20,22 @@ app.use("/graphql", graphqlHTTP({
 	graphiql: true
 }));
 
+// --------------- deployment ---------------
+
+__dirname = path.resolve();
+if (process.env.NODE_ENV === "production") {
+	app.use(express.static(path.join(__dirname, "/client/build")));
+
+	app.get("*", (req,res) => {
+		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+	});
+} else {
+	app.get('/', (req,res) => {
+		res.send("API is running..");
+	});
+}
+
+// --------------- deployment ---------------
 
 const PORT = process.env.PORT || 4000;
 
