@@ -4,9 +4,9 @@
 	"description": "",
 	"main": "app.js",
 	"scripts": {
-		"start": "concurrently \"npm run server\" \"npm run client\"",
+		"start": "concurrently \"npm run client\" \"npm run server\"",
 		"client": "cd client && serve -s build",
-		"server": "node server/app.js"
+		"server": "npx kill-port 4000 && nodemon server/app.js"
 	},
 	"author": "",
 	"license": "ISC",
