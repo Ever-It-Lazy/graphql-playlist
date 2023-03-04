@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "concurrently \"npm run client\" \"npm run server\"",
 		"client": "cd client && serve -s build",
-		"server": "npx kill-port 4000 && nodemon server/app.js"
+		"server": "nodemon server/app.js"
 	},
 	"author": "",
 	"license": "ISC",
