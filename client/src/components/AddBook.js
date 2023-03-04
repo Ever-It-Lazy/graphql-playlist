@@ -4,7 +4,7 @@ import { getAuthorsQuery, addBookMutation, getBooksQuery } from "../queries/quer
 
 function AddBook() {
 	const { loading, error, data } = useQuery(getAuthorsQuery);
-	const [addBook, { data: bookData, loading: bookLoading, error: bookError }] = useMutation(addBookMutation, {
+	const [addBook, { loading: bookLoading, error: bookError }] = useMutation(addBookMutation, {
 		refetchQueries: [
 			{ query: getBooksQuery }
 		]
