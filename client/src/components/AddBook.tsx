@@ -1,3 +1,4 @@
+import React from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { getAuthorsQuery, addBookMutation, getBooksQuery } from "../queries/queries";
@@ -10,11 +11,11 @@ function AddBook() {
 		]
 	});
 
-	const [name, setName] = useState(null);
-	const [genre, setGenre] = useState(null);
-	const [authorId, setAuthorId] = useState(null);
+	const [name, setName] = useState<string|null>(null);
+	const [genre, setGenre] = useState<string|null>(null);
+	const [authorId, setAuthorId] = useState<string|null>(null);
 
-	const submitForm = (e) => {
+	const submitForm = (e: React.SyntheticEvent) => {
 		e.preventDefault();
 		addBook({
 			variables: {
@@ -23,6 +24,11 @@ function AddBook() {
 				authorId: authorId
 			}
 		});
+	};
+
+	type authorProps = {
+		name: string;
+		id: string;
 	};
 
 	if (loading) return <p>Loading...</p>;
@@ -48,9 +54,9 @@ function AddBook() {
 				<select onChange={(e) => setAuthorId(e.target.value)} >
 					<option>Select author</option>
 					{
-						data.authors.map(({ name, id }) => (
-							<option key={id} value={id}>{name}</option>
-						))
+						// data.authors.map((name: string, id: string) => (
+						// 	<option key={id} value={id}>{name}</option>
+						// ))
 					}
 				</select>
 			</div>

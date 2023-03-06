@@ -1,7 +1,8 @@
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { getBookQuery } from "../queries/queries";
 
-function BookDetails({ bookId }) {
+function BookDetails(bookId: any) {
 	const id = bookId;
 	const { loading, error, data } = useQuery(getBookQuery, {
 		variables: { id }
@@ -20,9 +21,9 @@ function BookDetails({ bookId }) {
 					<p>{data.book.genre}</p>
 					<p>All books by {data.book.author.name}:</p>
 					<ul className="other-books">
-						{data.book.author.books.map(({ id, name }) => (
+						{/* {data.book.author.books.map((id: string, name: string) => (
 							<li key={id}>{name}</li>
-						))}
+						))} */}
 					</ul>
 				</div>
 			) : (

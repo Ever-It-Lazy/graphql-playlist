@@ -8,7 +8,9 @@
 		"client": "npm start --prefix client",
 		"server": "node server/index.js",
 		"start": "npm run server",
-		"build": "npm install && npm install --prefix client && npm run build --prefix client"
+		"build": "npm install && npm install --prefix client && npm run build --prefix client",
+		"compile": "graphql-codegen",
+		"watch": "graphql-codegen -w"
 	},
 	"author": "",
 	"license": "ISC",
@@ -21,7 +23,11 @@
 		"lodash": "^4.17.21",
 		"mongoose": "^6.10.0",
 		"nodemon": "^2.0.20",
-		"ts-node": "^10.9.1",
+		"ts-node": "^10.9.1"
+	},
+	"devDependencies": {
+		"@graphql-codegen/cli": "^3.2.1",
+		"@graphql-codegen/client-preset": "^2.1.0",
 		"typescript": "^4.9.5"
 	}
 }
