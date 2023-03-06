@@ -26,11 +26,6 @@ function AddBook() {
 		});
 	};
 
-	type authorProps = {
-		name: string;
-		id: string;
-	};
-
 	if (loading) return <p>Loading...</p>;
 	if (error) return <p>Error : {error.message}</p>;
 
@@ -54,9 +49,9 @@ function AddBook() {
 				<select onChange={(e) => setAuthorId(e.target.value)} >
 					<option>Select author</option>
 					{
-						// data.authors.map((name: string, id: string) => (
-						// 	<option key={id} value={id}>{name}</option>
-						// ))
+						data.authors.map((author: { name: string, id: string }) => (
+							<option key={author.id} value={author.id}>{author.name}</option>
+						))
 					}
 				</select>
 			</div>

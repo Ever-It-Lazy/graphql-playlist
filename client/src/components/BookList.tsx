@@ -15,9 +15,9 @@ function BookList() {
 		<div>
 			<ul id="book-list">
 				{
-					// data.books.map((name: string, id: string) => (
-					// 	<li key={id} onClick={() => setBookId(id)}>{name}</li>
-					// ))
+					data.books.map((book: { name: string, id: string }) => (
+						<li key={book.id} onClick={() => setBookId(book.id)}>{book.name}</li>
+					))
 				}
 			</ul>
 			<BookDetails bookId={bookId} />
