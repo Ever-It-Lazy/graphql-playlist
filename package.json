@@ -6,7 +6,7 @@
 	"scripts": {
 		"dev": "concurrently \"npm run server\" \"npm run client\"",
 		"client": "npm start --prefix client",
-		"server": "node server/index.js",
+		"server": "node server/index.ts",
 		"start": "npm run server",
 		"build": "npm install && npm install --prefix client && npm run build --prefix client",
 		"compile": "graphql-codegen",
